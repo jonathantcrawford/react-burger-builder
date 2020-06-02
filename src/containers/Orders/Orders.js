@@ -8,11 +8,13 @@ import * as actions from '../../store/actions';
 import Spinner from '../../components/UI/Spinner/Spinner';
 
 const orders = props => {
+
+    const {token, userId, onFetchOrders} = props;
     useEffect(() => {
-        if (props.token) {
-            props.onFetchOrders(props.token, props.userId);
+        if (token) {
+            onFetchOrders(token, userId);
         }
-    }, [])
+    }, [token, userId, onFetchOrders])
 
     let orders = <Spinner />;
 
